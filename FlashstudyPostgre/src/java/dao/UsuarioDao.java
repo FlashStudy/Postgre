@@ -5,7 +5,9 @@
  */
 package dao;
 
+import java.sql.Connection;
 import model.Usuario;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 /**
@@ -14,7 +16,7 @@ import org.hibernate.Session;
  */
 public class UsuarioDao {
 
-    private Session sessao;
+    private final Session sessao;
     private HibernateSessionFactory factory;
 
     public UsuarioDao() {
@@ -30,10 +32,12 @@ public class UsuarioDao {
 
             sessao.getTransaction().commit();
 
+            sessao.disconnect();
+            
             sessao.close();
-
+            
             return 0;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             return 1;
         }
     }

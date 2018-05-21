@@ -5,16 +5,17 @@
  */
 package dao;
 
+import java.util.List;
 import model.Flashcard;
 import org.hibernate.Session;
 
 /**
  *
- * @author Bruno
+ * @author Igor
  */
 public class FlashcardDao {
 
-    private Session sessao;
+    private final Session sessao;
     private HibernateSessionFactory factory;
 
     public FlashcardDao() {
@@ -32,12 +33,27 @@ public class FlashcardDao {
             sessao.getTransaction().commit();
 
             sessao.close();
-            
+
             sessao.disconnect();
-                        
+
             return 0;
         } catch (Exception e) {
             return 1;
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Flashcard> findAll(String email) {
+        try {
+            List<Flashcard> cards;
+            org.hibernate.Transaction tx = sessao.beginTransaction();
+            cards = sessao.createSQLQuery("SELECT * FROM FLASHCARDS WHERE usuario_email = '" + email + "'").list();
+            if (cards.size() > 0) {
+                return cards;
+            }
+            return cards;
+        } catch (Exception e) {
+            throw e;
         }
     }
 }
