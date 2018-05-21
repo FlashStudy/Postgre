@@ -42,8 +42,7 @@ public class FlashcardDao {
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public List<Flashcard> findAll(String email) {
+    public List<Flashcard> getByEmail(String email) {
         try {
             List<Flashcard> cards;
             org.hibernate.Transaction tx = sessao.beginTransaction();

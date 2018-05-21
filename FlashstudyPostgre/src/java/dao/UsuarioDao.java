@@ -5,7 +5,6 @@
  */
 package dao;
 
-import java.sql.Connection;
 import model.Usuario;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

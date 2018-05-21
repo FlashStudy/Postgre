@@ -1,4 +1,7 @@
 <%@page import="model.Usuario"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Flashcard"%>
+
 <!DOCTYPE html>
 
 <html lang="pt-BR">
@@ -87,6 +90,10 @@
             String email = us.getEmail();
             
             out.println(us.getNome());
+            
+            FlashcardDao dao = new FlashcardDao();
+            
+            List<Flashcard> cards = dao.getByEmail(email);
         %>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -117,7 +124,7 @@
             <div class="jumbotron">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form action="FlashcardServlet" method="GET">
+                        <form action="FlashcardServlet" method="POST">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="btn-group-wrap">
@@ -127,7 +134,7 @@
                                             <button type="button" class="btn btn-primary" title="Deletar" id="btnDel"><a class="icon icon-trash"></a></button>
                                             <button type="button" class="btn btn-primary" title="Editar um flashcard" id="btnEdit"><a class="icon icon-edit"></a></button>
                                             <button type="button" class="btn btn-primary" title="Outras pessoas terão acesso ao flashcard" id="btnPublic">
-                                                <input type="checkbox" name="publico" value="true">  Público?</button>
+                                                <input type="checkbox" name="publico" value="true"/>  Público?</button>
                                         </div>   
                                     </div>  
                                 </div>
@@ -162,6 +169,13 @@
                 </div>
             </div>
         </div>
-
+                                            <div class="container-fluid">
+                                                <%
+                                                    int i;
+                                                    for(i=0; i<cards.length();i++){
+                                                        out.println();
+                                                    }
+                                                %>
+                                            </div>
     </body>
 </html>
