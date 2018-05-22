@@ -47,10 +47,10 @@ public class FlashcardServlet extends HttpServlet {
         card.setTitulo(titulo);
         card.setResposta(resposta);
 
-        if (publico.equals("true")) {
-            card.setPublico(true);
+        if (publico.equals("Público")) {
+            card.setPublico("Público");
         } else {
-            card.setPublico(false);
+            card.setPublico("Privado");
         }
 
         card.setUsuario(us);

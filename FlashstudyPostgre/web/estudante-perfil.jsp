@@ -1,10 +1,11 @@
 <%@page import="model.Usuario"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 
 <html lang="pt-BR">
     <head>
         <title>Flashstudy: Perfil</title>
-
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +28,6 @@
 
         <!-- Custom styles for this template -->
         <link href="css/freelancer.min.css" rel="stylesheet">
-
 
         <style>
             IMG.displayed {
@@ -84,7 +84,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xsm-12">
                     <div class="container" id="contFt">
-                        <IMG class="displayed" src="images/user-default.png" alt="Usuário"></IMG>
+                        <IMG class="displayed" src="images/user-default.png" alt="UsuÃ¡rio"></IMG>
                         <button type="button"class="btn btn-primary">Mudar foto</button>
                     </div>
                 </div>
@@ -116,10 +116,7 @@
                 </div>
             </div>
         </div>
-
-
-
-
+                                
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>

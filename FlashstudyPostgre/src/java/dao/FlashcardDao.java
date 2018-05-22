@@ -32,11 +32,11 @@ public class FlashcardDao {
 
             sessao.save(card);
 
+            sessao.flush();
+            sessao.clear();
             sessao.getTransaction().commit();
 
             sessao.close();
-
-            sessao.disconnect();
 
             return 0;
         } catch (HibernateException e) {
@@ -46,13 +46,17 @@ public class FlashcardDao {
 
     public List<Flashcard> getByEmail(String email) {
         List<Flashcard> cards = null;
-        
+
         Query consulta = sessao.createQuery("from Flashcard where usuario_email = ?");
 
         cards = consulta.setString(0, email).list();
-        
+
+        sessao.flush();
+        sessao.clear();
+        sessao.getTransaction().commit();
+
         sessao.close();
-        
+
         return cards;
     }
 }

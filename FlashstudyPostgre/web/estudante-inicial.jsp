@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Usuario"%>
 <!DOCTYPE html>
 
@@ -6,21 +7,26 @@
         <title>Flashstudy: Aluno</title>
 
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="css/estudante-padrao.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 
         <link rel="shortcut icon" href="img/icon.png" type="image/ico">        
 
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="css/estudante-padrao.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- Custom fonts for this template -->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-        <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- Plugin CSS -->
+        <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-
+        <!-- Custom styles for this template -->
+        <link href="css/freelancer.min.css" rel="stylesheet">
 
         <style>
             .carousel-inner img {
@@ -78,7 +84,7 @@
                     <div class="carousel-item active">
                         <img src="img/carrousel1.jpg">
                         <div class="carousel-caption d-none d-md-block">
-                            <h1>Uma infinidade de opções!</h1>
+                            <h1>Uma infinidade de opÃ§Ãµes!</h1>
                             <p class="lead">Tenha acesso a diversos materiais</p>
                         </div>
                     </div>
@@ -86,8 +92,8 @@
                     <div class="carousel-item">
                         <img src="img/carrousel2.jpg">
                         <div class="carousel-caption d-none d-md-block">
-                            <h1>Diminua o espaço!</h1>
-                            <p class="lead">Tenha tudo em um só lugar</p>
+                            <h1>Diminua o espaÃ§o!</h1>
+                            <p class="lead">Tenha tudo em um sÃ³ lugar</p>
                         </div>
                     </div>
                 </div>
@@ -97,9 +103,26 @@
                 </a>
                 <a class="carousel-control-next" href="#carouselSite" role="button" data-slide="next">
                     <span class="carousel-control-next-icon"></span>
-                    <span class="sr-only"> avançar</span>
+                    <span class="sr-only"> avanÃ§ar</span>
                 </a>
 
             </div>
+
+
+            <!-- Bootstrap core JavaScript -->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Plugin JavaScript -->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+            <!-- Contact Form JavaScript -->
+            <script src="js/jqBootstrapValidation.js"></script>
+            <script src="js/contact_me.js"></script>
+
+            <!-- Custom scripts for this template -->
+            <script src="js/freelancer.min.js"></script>
+
     </body>
 </html>

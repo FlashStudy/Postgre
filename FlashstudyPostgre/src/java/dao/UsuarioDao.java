@@ -29,12 +29,12 @@ public class UsuarioDao {
 
             sessao.save(us);
 
+            sessao.flush();
+            sessao.clear();
             sessao.getTransaction().commit();
 
-            sessao.disconnect();
-            
             sessao.close();
-            
+
             return 0;
         } catch (HibernateException e) {
             return 1;
@@ -48,7 +48,9 @@ public class UsuarioDao {
 
         usuario = (Usuario) sessao.get(Usuario.class, email);
 
-        sessao.disconnect();
+        sessao.flush();
+        sessao.clear();
+        sessao.getTransaction().commit();
 
         sessao.close();
 

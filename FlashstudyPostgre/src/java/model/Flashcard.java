@@ -17,18 +17,22 @@ public class Flashcard implements java.io.Serializable {
     private String publico;
 
     private Usuario usuario;
-
+    private Assunto assunto;
+    
     public Flashcard() {
 
     }
 
-    public Flashcard(String pergunta, String resposta, String nivel, String titulo, String publico) {
+    public Flashcard(String pergunta, String resposta, String nivel, String titulo, String publico, Usuario usuario, Assunto assunto) {
         this.pergunta = pergunta;
         this.resposta = resposta;
         this.nivel = nivel;
         this.titulo = titulo;
         this.publico = publico;
+        this.usuario = usuario;
+        this.assunto = assunto;
     }
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -88,5 +92,20 @@ public class Flashcard implements java.io.Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    
+    @ManyToOne
+    public Assunto getAssunto() {
+        return assunto;
+    }
 
+    public void setAssunto(Assunto assunto) {
+        this.assunto = assunto;
+    }
+
+    @Override
+    public String toString() {
+        return "Flashcard{" + "codigo=" + codigo + ", pergunta=" + pergunta + ", resposta=" + resposta + ", nivel=" + nivel + ", titulo=" + titulo + ", publico=" + publico + ", usuario=" + usuario + ", assunto=" + assunto + '}';
+    }
+    
+    
 }
