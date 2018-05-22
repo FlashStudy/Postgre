@@ -12,16 +12,16 @@ public class Assunto implements java.io.Serializable {
 
     private Integer codigo;
     private String tema;
-    
-    private Disciplina disciplina;
-    private Flashcard flashcard;
+
+    //private Disciplina disciplina;
+    //private Flashcard flashcard;
 
     public Assunto() {
     }
 
     public Assunto(Disciplina disciplina, Flashcard flashcard, String tema) {
-        this.disciplina = disciplina;
-        this.flashcard = flashcard;
+        //this.disciplina = disciplina;
+        //this.flashcard = flashcard;
         this.tema = tema;
     }
 
@@ -34,7 +34,8 @@ public class Assunto implements java.io.Serializable {
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
-    
+
+    /*
     @ManyToOne
     public Disciplina getDisciplina() {
         return this.disciplina;
@@ -43,7 +44,7 @@ public class Assunto implements java.io.Serializable {
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
-    
+     
     @ManyToMany
     public Flashcard getFlashcard() {
         return this.flashcard;
@@ -52,7 +53,7 @@ public class Assunto implements java.io.Serializable {
     public void setFlashcard(Flashcard flashcard) {
         this.flashcard = flashcard;
     }
-
+    */
     public String getTema() {
         return this.tema;
     }

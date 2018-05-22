@@ -29,9 +29,7 @@
         <link href="css/freelancer.min.css" rel="stylesheet">
 
         <style type="text/css">
-            .jumbotron{
-                background-color: #99ccff;
-            }
+            
 
             .container{
                 width: 70%;
