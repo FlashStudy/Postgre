@@ -1,6 +1,7 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="model.Usuario"%>
-<%@page import="java.util.List"%>
 <%@page import="model.Flashcard"%>
+<%@page import="dao.FlashcardDao"%>
 
 <!DOCTYPE html>
 
@@ -93,7 +94,7 @@
             
             FlashcardDao dao = new FlashcardDao();
             
-            List<Flashcard> cards = dao.getByEmail(email);
+            ArrayList<Flashcard> cards =(ArrayList) dao.getByEmail(email);
         %>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -134,7 +135,7 @@
                                             <button type="button" class="btn btn-primary" title="Deletar" id="btnDel"><a class="icon icon-trash"></a></button>
                                             <button type="button" class="btn btn-primary" title="Editar um flashcard" id="btnEdit"><a class="icon icon-edit"></a></button>
                                             <button type="button" class="btn btn-primary" title="Outras pessoas terão acesso ao flashcard" id="btnPublic">
-                                                <input type="checkbox" name="publico" value="true"/>  Público?</button>
+                                                <input type="checkbox" name="publico" value="Público"/>  Público?</button>
                                         </div>   
                                     </div>  
                                 </div>
@@ -169,13 +170,30 @@
                 </div>
             </div>
         </div>
-                                            <div class="container-fluid">
-                                                <%
-                                                    int i;
-                                                    for(i=0; i<cards.length();i++){
-                                                        out.println();
-                                                    }
-                                                %>
-                                            </div>
+        <div class="jumbotron">
+            <div class="row">
+                <%
+                    int i;
+                    for(i=0; i<cards.size();i++){     
+                %>
+                <div class="col-lg-3 col-sm-12">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= cards.get(i).getTitulo()%></h5>
+                            <p class="card-text">
+                            <ul>
+                                <li>Nível:<%= cards.get(i).getNivel()%></li>
+                                <li>Status:<%= cards.get(i).isPublico()%></li>
+                            </ul>
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <%
+                    }
+                %>    
+            </div>
+        </div>
     </body>
 </html>

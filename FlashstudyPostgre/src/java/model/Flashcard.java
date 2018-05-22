@@ -14,16 +14,15 @@ public class Flashcard implements java.io.Serializable {
     private String resposta;
     private String nivel;
     private String titulo;
-    private boolean publico;
+    private String publico;
 
     private Usuario usuario;
 
-    
     public Flashcard() {
-    
+
     }
-    
-    public Flashcard(String pergunta, String resposta, String nivel, String titulo, boolean publico) {
+
+    public Flashcard(String pergunta, String resposta, String nivel, String titulo, String publico) {
         this.pergunta = pergunta;
         this.resposta = resposta;
         this.nivel = nivel;
@@ -73,11 +72,11 @@ public class Flashcard implements java.io.Serializable {
         this.titulo = titulo;
     }
 
-    public boolean isPublico() {
+    public String getPublico() {
         return publico;
     }
 
-    public void setPublico(boolean publico) {
+    public void setPublico(String publico) {
         this.publico = publico;
     }
 
@@ -89,5 +88,5 @@ public class Flashcard implements java.io.Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-   
+
 }

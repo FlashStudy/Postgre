@@ -7,6 +7,8 @@ package dao;
 
 import java.util.List;
 import model.Flashcard;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
@@ -37,22 +39,20 @@ public class FlashcardDao {
             sessao.disconnect();
 
             return 0;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             return 1;
         }
     }
 
     public List<Flashcard> getByEmail(String email) {
-        try {
-            List<Flashcard> cards;
-            org.hibernate.Transaction tx = sessao.beginTransaction();
-            cards = sessao.createSQLQuery("SELECT * FROM FLASHCARDS WHERE usuario_email = '" + email + "'").list();
-            if (cards.size() > 0) {
-                return cards;
-            }
-            return cards;
-        } catch (Exception e) {
-            throw e;
-        }
+        List<Flashcard> cards = null;
+        
+        Query consulta = sessao.createQuery("from Flashcard where usuario_email = ?");
+
+        cards = consulta.setString(0, email).list();
+        
+        sessao.close();
+        
+        return cards;
     }
 }

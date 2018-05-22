@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" href="images/icon.ico" type="image/ico">        
+        <link rel="shortcut icon" href="img/icon.png" type="image/ico">        
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -52,12 +52,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link icon icon-calendar"     href="estudante-cronograma.jsp" style="color: #383838"> Cronograma</a>
-                    <a class="nav-item nav-link icon icon-refresh link"      href="estudante-ciclo.jsp" style="color: #383838"> Ciclo de estudos</a>
-                    <a class="nav-item nav-link icon icon-pushpin"      href="estudante-flashcards.jsp" style="color: #383838"> Flashcards</a>  
-                    <a class="nav-item nav-link icon icon-user"         href="estudante-perfil.jsp" style="color: #383838"> Perfil</a>
+                    <a class="nav-item nav-link icon icon-calendar"      href="estudante-cronograma.jsp" style="color: #383838"> Cronograma</a>
+                    <a class="nav-item nav-link icon icon-refresh link"  href="estudante-ciclo.jsp" style="color: #383838"> Ciclo de estudos</a>
+                    <a class="nav-item nav-link icon icon-pushpin"       href="estudante-flashcards.jsp" style="color: #383838"> Flashcards</a>  
+                    <a class="nav-item nav-link icon icon-user"          href="estudante-perfil.jsp" style="color: #383838"> Perfil</a>
                     <a class="nav-item nav-link icon icon-question-sign" href="estudante-ajuda.jsp" style="color: #383838"> Ajuda</a>
-                    <a class="nav-item nav-link icon icon-signout"      href="executar_login" style="color: #383838"> Sair</a>
+                    <a class="nav-item nav-link icon icon-signout"       href="executar_login" style="color: #383838"> Sair</a>
                 </div>
             </div>
         </nav>
@@ -76,7 +76,7 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="images/carrousel1.jpg">
+                        <img src="img/carrousel1.jpg">
                         <div class="carousel-caption d-none d-md-block">
                             <h1>Uma infinidade de opções!</h1>
                             <p class="lead">Tenha acesso a diversos materiais</p>
@@ -84,7 +84,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <img src="images/carrousel2.jpg">
+                        <img src="img/carrousel2.jpg">
                         <div class="carousel-caption d-none d-md-block">
                             <h1>Diminua o espaço!</h1>
                             <p class="lead">Tenha tudo em um só lugar</p>

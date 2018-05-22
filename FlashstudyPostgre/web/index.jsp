@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : May 16, 2018, 2:42:37 PM
-    Author     : FBQ-DEV2
+    Author     : Igor
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,15 +9,12 @@
 <html lang="en">
 
     <head>
-
+        <title>FlashStudy: Página inicial</title>
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
         <link rel="shortcut icon" href="img/icon.png" type="image/ico">        
-
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>FlashStudy: Página inicial</title>
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
