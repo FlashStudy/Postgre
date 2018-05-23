@@ -87,7 +87,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xsm-12">
                     <div class="container" id="contFt">
-                        <IMG class="displayed" src="img/user-default.png" alt="Usuário"></IMG>
+                        <IMG class="displayed rounded" src="img/user-default.png" alt="Usuário"></IMG>
                         <button type="button"class="btn btn-primary">Mudar foto</button>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xsm-12">
                     <div class="container">                                
                         <div class="jumbotron">
-                            <form action="/action_page.php">
+                            <form action="" method="">
                                 <div class="form-group">
                                     <label for="email">Nome:</label>
                                     <input type="text" class="form-control" id="nome" value="<%=us.getNome()%>" name="nome" disabled>
