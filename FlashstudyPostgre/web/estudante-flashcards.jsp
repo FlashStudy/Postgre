@@ -89,6 +89,10 @@
                 padding: auto;
                 margin-left: 50px;
             }
+
+            body{
+                background-color: #2C3E50;
+            }
         </style>
 
     </head>
@@ -99,15 +103,13 @@
             Usuario us = (Usuario)sessao.getAttribute("usuario");
             
             String email = us.getEmail();
-            
-            out.println(us.getNome());
-            
+                        
             FlashcardDao dao = new FlashcardDao();
             
-            ArrayList<Flashcard> cards =(ArrayList) dao.getByEmail(email);
+            ArrayList<Flashcard> cards = dao.getByEmail(email);
         %>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary rounded">
             <a class="navbar-brand h1 mb-0 icon icon-group" href="estudante-inicial.jsp"> FlashStudy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -127,8 +129,8 @@
 
 
         <div class="title">
-            <h2 class="icon icon-pushpin"> Flashcards</h2>
-            <span class="byline">Crie e edite todos os seus flashcards</span>
+            <h2 class="icon icon-pushpin" style="color: #cccccc"> Flashcards</h2>
+            <span class="byline" style="color: #cccccc">Crie e edite todos os seus flashcards</span>
         </div>
 
         <div class="container" id="area">
@@ -180,33 +182,42 @@
                 </div>
             </div>
         </div>
-        <div class="jumbotron">
-            <div class="row">
-                <%
-                    int i;
-                    for(i=0; i<cards.size();i++){     
-                %>
-                <div class="col-lg-3 col-sm-12">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><%= cards.get(i).getTitulo()%></h5>
-                            <p class="card-text">
-                            <ul>
-                                <li>Nível:<%= cards.get(i).getNivel()%></li>
-                                <li>Status:<%= cards.get(i).isPublico()%></li>
-                            </ul>
-                            </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+        <div class="container">
+
+            <div class="jumbotron">
+                <div class="title">
+                    <h2>Seus flashcards</h2>
+                </div>
+                <div class="row">
+                    <%
+                        int i;
+                        for(i=0; i<cards.size();i++){     
+                    %>
+                    <div class="col-lg-4 col-md-6 col-sm-12" style="margin-top: 5px">
+                        <div class="card align-self-center" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= cards.get(i).getTitulo()%></h5>
+                                <p class="card-text">
+                                <ul>
+                                    <li>Nível: <%= cards.get(i).getNivel()%></li>
+                                    <li>Status: <%= cards.get(i).getPublico()%></li>
+                                    <li>Matéria: null</li>
+                                    <li>Assunto: null</li>
+                                </ul>
+                                </p>
+                                <a href="#" class="btn btn-primary">Selecionar</a>
+                            </div>
                         </div>
                     </div>
+                    <%
+                        }
+                    %>    
                 </div>
-                <%
-                    }
-                %>    
             </div>
         </div>
 
-            
+
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

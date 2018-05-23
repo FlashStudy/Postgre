@@ -47,6 +47,11 @@
             tr:nth-child(odd) {
                 background-color: #ffffff
             }
+            
+            body{
+                background-color: #2C3E50;
+            }
+
         </style>
 
         <script type="text/javascript">
@@ -87,10 +92,9 @@
             HttpSession sessao = request.getSession();
             Usuario us = (Usuario)sessao.getAttribute("usuario");
             
-            out.println(us.getNome());
         %>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary rounded">
             <a class="navbar-brand h1 mb-0 icon icon-group" href="estudante-inicial.jsp"> FlashStudy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -108,8 +112,8 @@
         </nav>
 
         <div class="title">
-            <h2 class="icon icon-calendar"> Cronograma</h2>
-            <span class="byline">Calendário com todos os seus planejamentos</span>
+            <h2 class="icon icon-calendar" style="color: #cccccc"> Cronograma</h2>
+            <span class="byline" style="color: #cccccc">Calendário com todos os seus planejamentos</span>
         </div>
 
         <div class="container-fluid">
