@@ -47,7 +47,7 @@
             tr:nth-child(odd) {
                 background-color: #ffffff
             }
-            
+
             body{
                 background-color: #2C3E50;
             }
@@ -57,7 +57,7 @@
         <script type="text/javascript">
             function addMateriaTbl() {
 
-                if (document.getElementById("materia").value != "") {
+                if (document.getElementById("materia").value !== "") {
 
                     var table = document.getElementById("tblMaterias");
                     var row = table.insertRow(1);
@@ -65,14 +65,14 @@
                     var cell2 = row.insertCell(1);
                     cell1.innerHTML = document.getElementById("selMes").value;
                     cell2.innerHTML = document.getElementById("materia").value;
+                } else {
+                    window.alert("Favor inserir o nome da matéria!");
                 }
             }
 
             function resetTbl() {
                 var x = document.getElementById("tblMaterias").rows.length;
-
                 if (x > 1) {
-
                     var i = 1;
                     while (i <= x) {
                         document.getElementById("tblMaterias").deleteRow(i);
@@ -116,10 +116,10 @@
             <span class="byline" style="color: #cccccc">Calendário com todos os seus planejamentos</span>
         </div>
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="jumbotron">
 
-                <button type="button" class="btn btn-primary" id="btnCiclo" data-toggle="modal" data-target="#myModal" onclick="addHorarios()">
+                <button type="button" class="btn btn-info" id="btnCiclo" data-toggle="modal" data-target="#myModal" onclick="addHorarios()">
                     <spam class = "icon icon-edit"> Editar Cronograma</spam>
                 </button>
 
@@ -149,7 +149,7 @@
                                         <label for="sel1"><strong>Matéria:</strong></label>
                                         <input type="text" class="form-control" id="materia" 
                                                placeholder="Nome da matéria" name="materia"/>                         
-                                    </div>
+                                    </div>  
                                     <button type="button" class="btn btn-primary" onclick="addMateriaTbl()" style="width: 100%">
                                         <span class="icon icon-plus-sign"> Adicionar mês e matéria</span>
                                     </button>
@@ -176,7 +176,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card">
                             <div class="card-header">
                                 <a class="card-link" data-toggle="collapse" href="#collapseOne">
@@ -194,64 +194,26 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="card-link" data-toggle="collapse" href="#collapseTwo">
-                                    <strong>Fevereiro</strong>
-                                </a>
-                            </div>
-                            <div id="collapseTwo" class="collapse show" data-parent="#accordion">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>Português</li>
-                                        <li>Matemática</li>
-                                        <li>Física</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="card-link" data-toggle="collapse" href="#collapseThree">
-                                    <strong>Março</strong>
-                                </a>
-                            </div>
-                            <div id="collapseThree" class="collapse show" data-parent="#accordion">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>Filosofia</li>
-                                        <li>Sociologia</li>
-                                        <li>Química</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Plugin JavaScript -->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-        <!-- Contact Form JavaScript -->
-        <script src="js/jqBootstrapValidation.js"></script>
-        <script src="js/contact_me.js"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
 
-        <!-- Custom scripts for this template -->
-        <script src="js/freelancer.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/freelancer.min.js"></script>
 
-    </body>
+</body>
 </html>
