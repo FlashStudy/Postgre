@@ -40,7 +40,7 @@
             #flash1{
                 background-color: cadetblue;
                 width: 80%;
-                height: 300px;
+                height: 250px;
                 margin: auto;
                 margin-bottom: 20px;
                 padding: 5px;
@@ -49,7 +49,7 @@
             #flash2{
                 background-color: lightgreen;
                 width: 80%;
-                height: 300px;
+                height: 250px;
                 margin: auto;
                 margin-bottom: 20px;
                 padding: 5px;;
@@ -95,6 +95,19 @@
             }
         </style>
 
+        <script type="text/javascript">
+            function validaCampos() {
+                titulo = document.getElementById("titulo").value;
+                pergunta = document.getElementById("pergunta").value;
+                resposta = document.getElementById("resposta").value;
+
+                if ((titulo === "") || (pergunta === "") || (resposta === "")) {
+                    window.alert("Algum campo não está preenchido!");
+                } else {
+                    document.getElementById("flashcard").submit();
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -116,12 +129,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link icon icon-calendar"     href="estudante-cronograma.jsp" style="color: #383838"> Cronograma</a>
-                    <a class="nav-item nav-link icon icon-refresh link"      href="estudante-ciclo.jsp" style="color: #383838"> Ciclo de estudos</a>
-                    <a class="nav-item nav-link icon icon-pushpin"      href="estudante-flashcards.jsp" style="color: #383838"> Flashcards</a>  
-                    <a class="nav-item nav-link icon icon-user"         href="estudante-perfil.jsp" style="color: #383838"> Perfil</a>
-                    <a class="nav-item nav-link icon icon-question-sign" href="estudante-ajuda.jsp" style="color: #383838"> Ajuda</a>
-                    <a class="nav-item nav-link icon icon-signout"      href="executar_login" style="color: #383838"> Sair</a>
+                    <a class="nav-item nav-link icon icon-calendar"      href="estudante-cronograma.jsp" style="color: #383838"> Cronograma</a>
+                    <a class="nav-item nav-link icon icon-refresh link"  href="estudante-ciclo.jsp"      style="color: #383838"> Ciclo de estudos</a>
+                    <a class="nav-item nav-link icon icon-pushpin"       href="estudante-flashcards.jsp" style="color: #383838"> Flashcards</a>  
+                    <a class="nav-item nav-link icon icon-user"          href="estudante-perfil.jsp"     style="color: #383838"> Perfil</a>
+                    <a class="nav-item nav-link icon icon-question-sign" href="estudante-ajuda.jsp"      style="color: #383838"> Ajuda</a>
+                    <a class="nav-item nav-link icon icon-signout"       href="executar_login"           style="color: #383838"> Sair</a>
                 </div>
             </div>
         </nav>
@@ -137,17 +150,29 @@
             <div class="jumbotron">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form action="FlashcardServlet" method="POST">
+                        <form id="flashcard" action="FlashcardServlet" method="POST">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="btn-group-wrap">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-primary" title="Favoritar" id="btnFav"><a class="icon icon-star"></a></button>
-                                            <button type="button" class="btn btn-primary" title="Criar novo" id="btnNovo"><a class="icon icon-plus-sign"></a></button>
-                                            <button type="button" class="btn btn-primary" title="Deletar" id="btnDel"><a class="icon icon-trash"></a></button>
-                                            <button type="button" class="btn btn-primary" title="Editar um flashcard" id="btnEdit"><a class="icon icon-edit"></a></button>
-                                            <button type="button" class="btn btn-primary" title="Outras pessoas terão acesso ao flashcard" id="btnPublic">
-                                                <input type="checkbox" name="publico" value="Público"/>  Público?</button>
+                                            <button type="button" class="btn btn-dark" title="Favoritar"        id="btnFav" >
+                                                <a class="icon icon-star"> Favoritar</a>
+                                            </button>
+                                            <button type="button" class="btn btn-dark" title="Salvar"           id="btnSave" onclick="validaCampos()">
+                                                <a class="icon icon-save"> Salvar</a></button>
+                                            <button type="button" class="btn btn-dark" title="Criar novo"       id="btnNovo">
+                                                <a class="icon icon-plus-sign"> Novo</a>
+                                            </button>
+                                            <button type="button" class="btn btn-dark" title="Editar flashcard" id="btnEdit">
+                                                <a class="icon icon-edit"> Editar</a>
+                                            </button>
+                                            <button type="button" class="btn btn-dark" title="Deletar"          id="btnDel" >
+                                                <a class="icon icon-trash"> Deletar</a>
+                                            </button>
+                                            <button type="button" class="btn btn-dark" id="btnPublic">
+                                                <input title="Outros terão acesso ao flashcard" type="checkbox" name="publico" value="Público"/>
+                                                <spam> Público?</spam>
+                                            </button>
                                         </div>   
                                     </div>  
                                 </div>
@@ -172,7 +197,6 @@
                                         <div class="form-group">
                                             <textarea class="form-control" placeholder="Insira a sua resposta aqui" id="resposta" name="resposta"></textarea>
                                             <input type="hidden" name="email" value="<%= email%>"/>
-                                            <button type="submit" class="btn btn-primary">Salvar</button>
                                         </div>
                                     </div>
                                 </div>
