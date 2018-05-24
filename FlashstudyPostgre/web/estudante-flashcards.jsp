@@ -170,8 +170,8 @@
                                                 <a class="icon icon-trash"> Deletar</a>
                                             </button>
                                             <button type="button" class="btn btn-dark" id="btnPublic">
-                                                <input title="Outros terão acesso ao flashcard" type="checkbox" name="publico" value="Público"/>
-                                                <spam> Público?</spam>
+                                                <input title="Outros terão acesso ao flashcard" type="checkbox" name="publico" value="s"/>
+                                                Público?
                                             </button>
                                         </div>   
                                     </div>  

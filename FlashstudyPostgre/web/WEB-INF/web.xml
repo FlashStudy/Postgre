@@ -9,10 +9,6 @@
         <servlet-class>controler.FlashcardServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UsuarioServlet</servlet-name>
-        <servlet-class>controler.UsuarioServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>executar_login</servlet-name>
         <servlet-class>controler.executar_login</servlet-class>
     </servlet>
@@ -23,10 +19,6 @@
     <servlet-mapping>
         <servlet-name>FlashcardServlet</servlet-name>
         <url-pattern>/FlashcardServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UsuarioServlet</servlet-name>
-        <url-pattern>/UsuarioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>executar_login</servlet-name>
