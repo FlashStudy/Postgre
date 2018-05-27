@@ -160,7 +160,7 @@
                                         <th>Matéria</th>
                                     </tr>
                                 </table>
-                                <table  >
+                                <table>
 
                                 </table>
                             </div>
