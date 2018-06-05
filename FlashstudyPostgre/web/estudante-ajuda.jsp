@@ -89,10 +89,10 @@
                                 <div id="collapseOne" class="collapse show" data-parent="#accordion">
                                     <div class="card-body">
                                         <ol>
-                                            <li>Clique no menu <strong>Cronograma</strong> e clique em  crie novo cronograma;</li>
+                                            <li>Clique no menu <strong>Cronograma</strong> e crie novo cronograma;</li>
                                             <li>Insira todas as os assuntos e metas que deseja;</li>
                                             <li>Clique no menu <strong>Ciclo</strong> e clique no botão <strong>solicitar ciclo</strong>;</li>
-                                            <li>Selecione o <strong>dia</strong> e os <strong>horários de início e fim</strong> do seu estudo no determinado dia;</li>
+                                            <li>Selecione o <strong>dia</strong> e os <strong>horáraios de início e fim</strong> do seu estudo no determinado dia;</li>
                                             <li>Adicione quantos dias você desejar e clique no botão <stron>criar ciclo</stron>;</li>
                                             <li>O sistema irá gerar automaticamente o seu <stron>Ciclo de estudos!</stron></li>
                                         </ol>
@@ -108,15 +108,7 @@
                                 </div>
                                 <div id="collapseTwo" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
-                                        <ol>
-                                            <li>Selecione a aba <strong>Flashcards</strong>;</li>
-                                            <li>Insira o título do card;</li>
-                                            <li>Insira a pergunta no campo abaixo do título;</li>
-                                            <li>Insira a resposta no campo à direita;</li>
-                                            <li>Clique no botão <strong>Salvar</strong> para salvar o card.</li>
-                                            <br/>
-                                            <span>OBS: há ainda a possibilidade de favoritar ou deixar como público!</span>
-                                        </ol>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                     </div>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario  implements java.io.Serializable {
+public class Usuario implements java.io.Serializable {
 
     @Id
     private String email;
@@ -57,5 +57,5 @@ public class Usuario  implements java.io.Serializable {
     public String toString() {
         return "Usuario{" + "email=" + email + ", nome=" + nome + ", senha=" + senha + ", foto=" + foto + '}';
     }
-    
+
 }

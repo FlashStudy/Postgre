@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Usuario"%>
+<%@page import="model.Cronograma"%>
+<%@page import="dao.CronogramaDao"%>
 <!DOCTYPE html>
 
 <html lang="pt-BR">
@@ -55,43 +57,16 @@
         </style>
 
         <script type="text/javascript">
-            function addMateriaTbl() {
-
-                if (document.getElementById("materia").value !== "") {
-
-                    var table = document.getElementById("tblMaterias");
-                    var row = table.insertRow(1);
-                    var cell1 = row.insertCell(0);
-                    var cell2 = row.insertCell(1);
-                    cell1.innerHTML = document.getElementById("selMes").value;
-                    cell2.innerHTML = document.getElementById("materia").value;
-                } else {
-                    window.alert("Favor inserir o nome da matéria!");
-                }
-            }
-
-            function resetTbl() {
-                var x = document.getElementById("tblMaterias").rows.length;
-                if (x > 1) {
-                    var i = 1;
-                    while (i <= x) {
-                        document.getElementById("tblMaterias").deleteRow(i);
-                    }
-                }
-            }
         </script>
     </head>
 
     <body>
 
         <%
-            String meses[] = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
-        %>
-        <%
             HttpSession sessao = request.getSession();
             Usuario us = (Usuario)sessao.getAttribute("usuario");
-            
+            //CronogramaDao dao = new CronogramaDao();
+            //Cronograma = dao.getByEmail(us.getEmail());
         %>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-primary rounded">
@@ -118,60 +93,44 @@
 
         <div class="container">
             <div class="jumbotron">
+                <!-- Large modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><spam class = "icon icon-edit"> Editar Cronograma</spam></button>
 
-                <button type="button" class="btn btn-info" id="btnCiclo" data-toggle="modal" data-target="#myModal" onclick="addHorarios()">
-                    <spam class = "icon icon-edit"> Editar Cronograma</spam>
-                </button>
-
-                <!-- Modal Formulário -->
-                <div class="modal fade" id="myModal">
-                    <div class="modal-dialog">
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
 
-                            <!-- Modal cabeçalhor -->
+                            <!-- Cabeçalho -->
                             <div class="modal-header">
                                 <h4 class="modal-title">Cronograma</h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
 
-                            <!-- Modal corpo -->
-                            <div class="modal-body" id="mBody">
-                                <div>
-                                    <div class="form-group">
-                                        <label for="sel1"><strong>Selecione o mês:</strong></label>
-                                        <select class="form-control" id="selMes">
-                                            <% for (int i = 0; i < 12; i++) {%>
-                                            <option value="<%= meses[i]%>"><%= meses[i]%></option>
-                                            <%}%>
-                                        </select>
+                            <div class="modal-body">
+                                <form name="fmeses" id="fmeses" action="CronoServlet" method="GET">
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-6">
+                                            <label for="mInicio">Selecione o mês inicial:</label>
+                                            <input onchange="testa()" class="form-control rounded" type="date" id="minicio" name="minicio"/>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="mFim">Selecione o mês final:</label>
+                                            <input onchange="testa()" class="form-control rounded" type="date" id="mfim" name="mfim"/>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="materia">Matéria:</label>
+                                            <input type="text" class="form-control" id="materia" placeholder="Matemática, história ...">
+                                        </div>
+
                                     </div>
-                                    <div class="form-group">
-                                        <label for="sel1"><strong>Matéria:</strong></label>
-                                        <input type="text" class="form-control" id="materia" 
-                                               placeholder="Nome da matéria" name="materia"/>                         
-                                    </div>  
-                                    <button type="button" class="btn btn-primary" onclick="addMateriaTbl()" style="width: 100%">
-                                        <span class="icon icon-plus-sign"> Adicionar mês e matéria</span>
-                                    </button>
-                                </div>
-                                <table id="tblMaterias">
-                                    <tr>
-                                        <th>Mês</th>
-                                        <th>Matéria</th>
-                                    </tr>
-                                </table>
-                                <table>
-
-                                </table>
-                            </div>
-
-                            <!-- Modal rodapé -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal">Concluir</button>
-                                <button type="button" class="btn btn-danger" onclick="resetTbl()" data-dismiss="modal">Cancelar</button>
+                                </form>
                             </div>
 
                         </div>
+
                     </div>
                 </div>
 
@@ -196,24 +155,92 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <!--
+            <button type="button" class="btn btn-info" id="btnCiclo" data-toggle="modal" data-target="#myModal" onclick="addHorarios()">
+                <spam class = "icon icon-edit"> Editar Cronograma</spam>
+            </button>
+            
+            <!-- Modal Formulário -->
+            <!--
+            <div class="modal fade modal-lg" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+            
+            
+            <!-- Modal cabeçalhor -->
+
+            <!--
+            <div class="modal-header">
+                <h4 class="modal-title">Cronograma</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal corpo -->
+            <!--
+            <div class="modal-body" id="mBody">
+                <form name="fmeses" id="fmeses" action="CronoServlet" method="GET">
+                    <div class="row">
+                        <div class="form-group col">
+                            <label for="mInicio"><strong>Selecione o mês inicial:</strong></label>
+                            <input onchange="testa()" class="rounded" type="date" id="minicio" name="minicio"/>
+                        </div>
+            
+                        <div class="form-group col">
+                            <label for="mFim"><strong>Selecione o mês final:</strong></label>
+                            <input onchange="testa()" class="rounded" type="date" id="mfim" name="mfim"/>
+                        </div>
+                    </div>
+            
+                </form>
+                <div class="form-group">
+                    <label for="materia"><strong>Matéria:</strong></label>
+                    <input type="text" style="width: 100%" class="form-control" id="materia" 
+                           placeholder="Nome da matéria" name="materia" 
+                           data-toggle="tooltip" data-placement="top"
+                           title="Selecione os meses para habilitar esse campo!"
+                           disabled="disabled"/>                         
+                </div>  
+                <button type="button" class="btn btn-primary" onclick="addMateriaTbl()" style="width: 100%">
+                    <span class="icon icon-plus-sign"> Adicionar mês e matéria</span>
+                </button>
+            
+                <table id="tblMaterias">
+                    <tr>
+                        <th>Matérias</th>
+                    </tr>
+                </table>
+            
+                <table></table>
+            
+            
+            <!-- Modal rodapé -->
+            <!--
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
+                <button type="button" class="btn btn-danger" onclick="" data-dismiss="modal">Cancelar</button>
+            </div>
+            
+            </div>
+            </div>
+            </div>
+            </div>
+            -->
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Bootstrap core JavaScript -->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+            <!-- Plugin JavaScript -->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+            <!-- Contact Form JavaScript -->
+            <script src="js/jqBootstrapValidation.js"></script>
+            <script src="js/contact_me.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/freelancer.min.js"></script>
+            <!-- Custom scripts for this template -->
+            <script src="js/freelancer.min.js"></script>
 
-</body>
+    </body>
 </html>

@@ -24,7 +24,7 @@ public class Pasta implements java.io.Serializable {
         this.usuario = usuario;
         this.flashcard = flashcard;
     }
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getCodigo() {
@@ -51,7 +51,7 @@ public class Pasta implements java.io.Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
+
     @OneToMany
     public Flashcard getFlashcard() {
         return flashcard;

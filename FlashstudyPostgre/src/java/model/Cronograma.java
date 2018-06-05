@@ -1,35 +1,39 @@
 package model;
 
-import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import java.time.*;
+import java.util.List;
+import javax.persistence.*;
 
 @Entity
 public class Cronograma implements java.io.Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigo;
-    private Date inicio;
-    private Date fim;
+    private LocalDate inicio;
+    private LocalDate fim;
 
+    @ManyToOne
     private Usuario usuario;
-    private Disciplina disciplina;
-    
+
+    @ManyToMany
+    @JoinTable(name = "usuario_cria_cronograma", joinColumns
+            = {
+                @JoinColumn(name = "cronograma_codigo")}, inverseJoinColumns
+            = {
+                @JoinColumn(name = "disciplina_codigo")})
+    private List<Disciplina> disciplinas;
+
     public Cronograma() {
     }
 
-    public Cronograma(Date inicio, Date fim, Usuario usuario, Disciplina disciplina) {
+    public Cronograma(LocalDate inicio, LocalDate fim, Usuario usuario, List<Disciplina> disciplinas) {
         this.inicio = inicio;
         this.fim = fim;
         this.usuario = usuario;
-        this.disciplina = disciplina;
+        this.disciplinas = disciplinas;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getCodigo() {
         return codigo;
     }
@@ -38,23 +42,22 @@ public class Cronograma implements java.io.Serializable {
         this.codigo = codigo;
     }
 
-    public Date getInicio() {
+    public LocalDate getInicio() {
         return inicio;
     }
 
-    public void setInicio(Date inicio) {
+    public void setInicio(LocalDate inicio) {
         this.inicio = inicio;
     }
 
-    public Date getFim() {
+    public LocalDate getFim() {
         return fim;
     }
 
-    public void setFim(Date fim) {
+    public void setFim(LocalDate fim) {
         this.fim = fim;
     }
 
-    @ManyToOne
     public Usuario getUsuario() {
         return usuario;
     }
@@ -63,18 +66,17 @@ public class Cronograma implements java.io.Serializable {
         this.usuario = usuario;
     }
 
-    @ManyToMany
-    public Disciplina getDisciplina() {
-        return disciplina;
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
 
     @Override
     public String toString() {
-        return "Cronograma{" + "codigo=" + codigo + ", inicio=" + inicio + ", fim=" + fim + ", usuario=" + usuario + ", disciplina=" + disciplina + '}';
+        return "Cronograma{" + "codigo=" + codigo + ", inicio=" + inicio + ", fim=" + fim + ", usuario=" + usuario + ", disciplinas=" + disciplinas + '}';
     }
-    
+
 }
