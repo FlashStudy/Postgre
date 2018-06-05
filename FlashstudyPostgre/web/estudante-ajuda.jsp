@@ -32,6 +32,7 @@
         <!-- Custom styles for this template -->
         <link href="css/freelancer.min.css" rel="stylesheet">
 
+        <!-- Estilos dessa página -->
         <style type="text/css">
             body{
                 background-color: #2C3E50;
@@ -48,12 +49,14 @@
     </head>
 
     <body>
+        <!-- Pegando a sessão do usuário -->
         <%
             HttpSession sessao = request.getSession();
             usuario = (Usuario)sessao.getAttribute("usuario");
 
         %>
 
+        <!-- Menu de navegação -->
         <nav class="navbar navbar-expand-lg navbar-light bg-primary rounded">
             <a class="navbar-brand h1 mb-0 icon icon-group" href="estudante-inicial.jsp"> FlashStudy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,19 +74,24 @@
             </div>
         </nav>
 
+        <!-- Título -->
         <div class="title">
             <h2 class="icon icon-question-sign" style="color: #cccccc"> Ajuda</h2>
             <span class="byline" style="color: #cccccc">Veja aqui algumas dicas de como usar o <strong>Flashstudy</strong></span>
         </div>
 
+        <!-- Container principal -->
         <div class="container-fluid">
             <div class="row">
+                
+                <!-- Cards de dúvidadas -->
                 <div class="col-lg-6 col-sm-12">
                     <div class="jumbotron">
                         <h3><strong>Dúvidas frequentes</strong></h3>
 
                         <div id="accordion">
 
+                            <!-- Ciclo -->
                             <div class="card">
                                 <div class="card-header">
                                     <a class="card-link" data-toggle="collapse" href="#collapseOne">
@@ -104,6 +112,7 @@
                                 </div>
                             </div>
 
+                            <!-- Flashcards -->
                             <div class="card">
                                 <div class="card-header">
                                     <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
@@ -134,6 +143,8 @@
 
                     </div>
                 </div>
+                
+                <!-- Mensagem -->
                 <div class="col-lg-6 col-sm-12">
                     <div class="jumbotron">
                         <div class="container">

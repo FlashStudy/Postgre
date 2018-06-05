@@ -33,6 +33,7 @@
         <!-- Custom styles for this template -->
         <link href="css/freelancer.min.css" rel="stylesheet">
 
+        <!-- Estilo da página -->
         <style type="text/css">
             table {
                 border-collapse: collapse;
@@ -59,17 +60,18 @@
 
         </style>
 
-        <script type="text/javascript">
-        </script>
+
     </head>
 
     <body>
 
+        <!-- Pegando a sessão do usuário -->
         <%
             HttpSession sessao = request.getSession();
             usuario = (Usuario)sessao.getAttribute("usuario");
         %>
 
+        <!-- Menu de navegação -->
         <nav class="navbar navbar-expand-lg navbar-light bg-primary rounded">
             <a class="navbar-brand h1 mb-0 icon icon-group" href="estudante-inicial.jsp"> FlashStudy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,14 +89,17 @@
             </div>
         </nav>
 
+        <!-- Título -->
         <div class="title">
             <h2 class="icon icon-calendar" style="color: #cccccc"> Cronograma</h2>
             <span class="byline" style="color: #cccccc">Calendário com todos os seus planejamentos</span>
         </div>
 
+        <!-- Container principal -->
         <div class="container">
+
             <div class="jumbotron">
-                <!-- Large modal -->
+                <!-- Modal largo -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><spam class = "icon icon-edit"> Editar Cronograma</spam></button>
 
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -226,22 +231,22 @@
             </div>
             </div>
             -->
+        </div>
 
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Bootstrap core JavaScript -->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-            <!-- Plugin JavaScript -->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-            <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <!-- Contact Form JavaScript -->
+        <script src="js/jqBootstrapValidation.js"></script>
+        <script src="js/contact_me.js"></script>
 
-            <!-- Contact Form JavaScript -->
-            <script src="js/jqBootstrapValidation.js"></script>
-            <script src="js/contact_me.js"></script>
-
-            <!-- Custom scripts for this template -->
-            <script src="js/freelancer.min.js"></script>
+        <!-- Custom scripts for this template -->
+        <script src="js/freelancer.min.js"></script>
 
     </body>
 </html>
