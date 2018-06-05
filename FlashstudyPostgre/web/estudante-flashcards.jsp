@@ -1,8 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Usuario"%>
 <%@page import="model.Flashcard"%>
-<%@page import="dao.FlashcardDao"%>
+
+<jsp:useBean class="model.Usuario"   id="usuario" scope="page"/>
+<jsp:useBean class="dao.Flashcard"   id="dao"     scope="page"/>
 
 <!DOCTYPE html>
 
@@ -113,12 +116,10 @@
     <body>
         <%
             HttpSession sessao = request.getSession();
-            Usuario us = (Usuario)sessao.getAttribute("usuario");
+            usuario = (Usuario)sessao.getAttribute("usuario");
             
-            String email = us.getEmail();
-                        
-            FlashcardDao dao = new FlashcardDao();
-            
+            String email = usuario.getEmail();
+                                    
             ArrayList<Flashcard> cards = dao.getByEmail(email);
         %>
 

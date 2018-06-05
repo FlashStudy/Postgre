@@ -1,7 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="model.Usuario"%>
+
 <%@page import="model.Cronograma"%>
 <%@page import="dao.CronogramaDao"%>
+
+<jsp:useBean id="usuario" class="model.Usuario" scope="page"/>
+
 <!DOCTYPE html>
 
 <html lang="pt-BR">
@@ -64,9 +67,7 @@
 
         <%
             HttpSession sessao = request.getSession();
-            Usuario us = (Usuario)sessao.getAttribute("usuario");
-            //CronogramaDao dao = new CronogramaDao();
-            //Cronograma = dao.getByEmail(us.getEmail());
+            usuario = (Usuario)sessao.getAttribute("usuario");
         %>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-primary rounded">

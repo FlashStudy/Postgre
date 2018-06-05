@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@page import="model.Usuario"%>
+
+<jsp:useBean class="model.Usuario" id="usuario" scope="page" />
 <!DOCTYPE html>
 
 <html lang="pt-BR">
@@ -103,7 +106,7 @@
     <body>
         <%
             HttpSession sessao = request.getSession();
-            Usuario us = (Usuario)sessao.getAttribute("usuario");
+            usuario = (Usuario)sessao.getAttribute("usuario");
         %>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-primary rounded">

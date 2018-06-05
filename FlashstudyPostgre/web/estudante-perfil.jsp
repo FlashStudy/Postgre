@@ -1,5 +1,8 @@
 <%@page import="model.Usuario"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<jsp:useBean class="model.Usuario" id="usuario" scope="page"/>
 
 <!DOCTYPE html>
 
@@ -93,7 +96,7 @@
     <body>
         <%
             HttpSession sessao = request.getSession();
-            Usuario us = (Usuario)sessao.getAttribute("usuario");
+            usuario = (Usuario)sessao.getAttribute("usuario");
             
         %>
 
@@ -138,19 +141,19 @@
                                 <div class="form-group row">
                                     <label for="inputPassword" class="col-sm-2 col-form-label">Nome:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="nome" name="nome" value="<%=us.getNome()%>" disabled/>
+                                        <input type="text" class="form-control" id="nome" name="nome" value="<%=usuario.getNome()%>" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="staticEmail" class="col-sm-2 col-form-label">Email:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control" id="email" name="email" value="<%=us.getEmail()%>"/>
+                                        <input type="text" readonly class="form-control" id="email" name="email" value="<%=usuario.getEmail()%>"/>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="senha" class="col-sm-2 col-form-label">Senha:</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="senha" name="senha" value="<%=us.getSenha()%>" disabled/>
+                                        <input type="password" class="form-control" id="senha" name="senha" value="<%=usuario.getSenha()%>" disabled/>
                                     </div>
                                 </div>
 
@@ -177,38 +180,6 @@
                                 </div>
                             </form>
 
-                            <!--
-                            <form action="/action_page.php">
-                                <div class="form-inline">
-
-                                    <div class="form-group">
-                                        <label for="nome">Nome:</label>
-                                        <input type="text" class="form-control" id="nome" value="<%=us.getNome()%>" name="nome" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="emai">Email:</label>
-                                        <input class="form-control" type="text" placeholder="<%=us.getEmail()%>" readonly>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">Senha:</label>
-                                    <input type="password" class="form-control" id="senha" value="<%=us.getSenha()%>" name="senha" disabled>
-                                    <br>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <p id="lblsenha"></p>
-                                    <input type="hidden" class="form-control" id="senhaC" name="senhaC">
-                                </div>
-                                <div class="form-inline">
-                                    <button type="button" onclick="editaDados(this.value)" class="btn btn-primary">Editar dados</button>
-                                    <input type="hidden" onclick="salvaDados()" id="btnSalva" class="btn btn-success" value="Salvar dados"/>
-                                    <input type="hidden" onclick="cancela()" id="btnCancela" class="btn btn-danger" value="Cancelar"/>
-                                </div>
-                            </form>
-                            -->
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@page import="model.Usuario"%>
+
+<jsp:useBean id="usuario" class="model.Usuario" scope="page" />
+
 <!DOCTYPE html>
 
 <html lang="pt-BR">
@@ -46,7 +50,7 @@
     <body>
         <%
             HttpSession sessao = request.getSession();
-            Usuario us = (Usuario)sessao.getAttribute("usuario");
+            usuario = (Usuario)sessao.getAttribute("usuario");
 
         %>
 

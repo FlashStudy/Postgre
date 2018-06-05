@@ -1,19 +1,15 @@
-<%-- 
-    Document   : index
-    Created on : May 16, 2018, 2:42:37 PM
-    Author     : Igor
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="pt-br">
 
     <head>
         <title>FlashStudy: Página inicial</title>
-        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+
         <link rel="shortcut icon" href="img/icon.png" type="image/ico">        
 
         <!-- Bootstrap core CSS -->
@@ -177,10 +173,6 @@
                     </div>
                 </div>
                 <div class="text-center mt-4">
-                    <!-- <a class="btn btn-xl btn-outline-light" href="#">
-                       <i class="mr-2"></i>
-                       Download Now!
-                     </a>-->
                     <button type="button" class="btn btn-primary" id="btnCiclo" data-toggle="modal" data-target="#myModalLogin">
                         <spam > LOGIN</spam>
                     </button>
